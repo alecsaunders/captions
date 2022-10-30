@@ -11,7 +11,7 @@ struct ContentView: View {
     @Binding var document: CaptionsDocument
 
     var body: some View {
-        TextEditor(text: $document.text)
+        TextEditor(text: "hello World")
     }
 }
 

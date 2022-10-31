@@ -25,7 +25,7 @@ struct ContentView: View {
         do {
             let contents = try String(contentsOf: fileUrl!)
             let caps = Captions(fromText: contents)
-            self.capText = caps.toText()
+            self.capText = String(caps)
         } catch {
             print("Error")
         }

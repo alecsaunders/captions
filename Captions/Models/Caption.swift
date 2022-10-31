@@ -25,8 +25,11 @@ struct Captions {
     init(fromText text: String) {
         self.tempText = "\(text)"
     }
-    
-    func toText() -> String {
-        return tempText
+}
+
+
+extension String {
+    init(_ captions: Captions) {
+        self = captions.tempText
     }
 }

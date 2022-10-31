@@ -15,12 +15,9 @@ extension UTType {
 }
 
 struct CaptionsDocument: FileDocument {
-    var text: String
     var captions: Captions = Captions(fromText: "")
 
-    init(text: String = "Hello, world!") {
-        self.text = text        
-    }
+    init() {}
 
     static var readableContentTypes: [UTType] { [.webVTTDocument] }
 
@@ -30,12 +27,12 @@ struct CaptionsDocument: FileDocument {
         else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        text = string
         captions = Captions(fromText: string)
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let data = text.data(using: .utf8)!
+        let textContents = String(captions)
+        let data = textContents.data(using: .utf8)!
         return .init(regularFileWithContents: data)
     }
 }

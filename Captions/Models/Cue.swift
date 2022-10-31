@@ -112,9 +112,15 @@ extension String {
     }
 }
 
+extension String {
+    init(_ timings: Timings) {
+        self = "\(String(timings.startTime)) --> \(String(timings.endTime))"
+    }
+}
+
 
 extension String {
     init(_ cue: Cue) {
-        self = "\(cue.identifier)\n\(cue.timings)\n\(cue.text)"
+        self = "\(cue.identifier)\n\(String(cue.timings))\n\(cue.text)"
     }
 }

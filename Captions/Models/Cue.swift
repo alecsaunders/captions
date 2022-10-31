@@ -16,7 +16,6 @@ struct Timestamp {
     }
 }
 
-
 extension Timestamp {
     func hour() -> Int {
         return Int(timeValue / 3600.0)

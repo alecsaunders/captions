@@ -27,15 +27,11 @@ struct Captions {
     
     private static func parse(fromText text: String) -> [Cue] {
         let lines = text.components(separatedBy: .newlines)
-        
         var tmpCues: [Cue] = []
-        
         var isNewCue = true
-        
         var tmpTimings = ""
         var tmpSettings = ""
         var tmpText = ""
-        
         var cueCounter = 1
         for line in lines {
             if isNewCue {
@@ -44,12 +40,10 @@ struct Captions {
                     continue
                 }
             }
-            
             if isTimingsLine(line: line) {
                 tmpTimings = line.trimmingCharacters(in: .whitespacesAndNewlines)
                 continue
             }
-            
             if self.isEmptyLine(line: line) {
                 let tmpCue = Cue(identifier: cueCounter, timings: tmpTimings, settings: tmpSettings, text: tmpText)
                 tmpCues.append(tmpCue)

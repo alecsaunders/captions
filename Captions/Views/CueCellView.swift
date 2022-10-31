@@ -5,7 +5,6 @@
 //  Created by Saunders, Alec on 10/31/22.
 //
 
-import Foundation
 import SwiftUI
 
 
@@ -14,10 +13,10 @@ struct CueView: View {
 
     var body: some View {
         VStack {
-            Text("\(cue.identifier)")
-            Text(cue.timings)
-            Text(cue.text)
-            Text("end cue\n")
+            CueHeaderView(cue: $cue)
+            CueTimingsView(cue: $cue)
+            CueTextView(cue: $cue)
+            Divider()
         }
     }
 }

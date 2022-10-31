@@ -20,11 +20,16 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
+                
+            }
+            VStack {
+                Text("Main body")
+                Spacer()
                 Button("OK") {
                     getSubContents()
                 }
             }
-            Text("Main body")
+            
         }
     }
     

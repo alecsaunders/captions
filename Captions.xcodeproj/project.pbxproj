@@ -16,6 +16,9 @@
 		E448EF61290E38FB00E1B805 /* CaptionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF60290E38FB00E1B805 /* CaptionsUITests.swift */; };
 		E448EF63290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF62290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift */; };
 		E4A29F7529102E5700FB7C00 /* CueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F7429102E5700FB7C00 /* CueCellView.swift */; };
+		E4A29F782910324100FB7C00 /* CueHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F772910324100FB7C00 /* CueHeaderView.swift */; };
+		E4A29F7A291032A400FB7C00 /* CueTimingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F79291032A400FB7C00 /* CueTimingsView.swift */; };
+		E4A29F7C2910333200FB7C00 /* CueTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F7B2910333200FB7C00 /* CueTextView.swift */; };
 		E4CA0125290F9445001F5ABB /* subtitle.srt in Resources */ = {isa = PBXBuildFile; fileRef = E4CA0124290F9445001F5ABB /* subtitle.srt */; };
 		E4CA0127290F96F7001F5ABB /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA0126290F96F6001F5ABB /* Caption.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,9 @@
 		E448EF60290E38FB00E1B805 /* CaptionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsUITests.swift; sourceTree = "<group>"; };
 		E448EF62290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E4A29F7429102E5700FB7C00 /* CueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueCellView.swift; sourceTree = "<group>"; };
+		E4A29F772910324100FB7C00 /* CueHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueHeaderView.swift; sourceTree = "<group>"; };
+		E4A29F79291032A400FB7C00 /* CueTimingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueTimingsView.swift; sourceTree = "<group>"; };
+		E4A29F7B2910333200FB7C00 /* CueTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueTextView.swift; sourceTree = "<group>"; };
 		E4CA0124290F9445001F5ABB /* subtitle.srt */ = {isa = PBXFileReference; lastKnownFileType = text; path = subtitle.srt; sourceTree = "<group>"; };
 		E4CA0126290F96F6001F5ABB /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				E4A29F7429102E5700FB7C00 /* CueCellView.swift */,
+				E4A29F772910324100FB7C00 /* CueHeaderView.swift */,
+				E4A29F79291032A400FB7C00 /* CueTimingsView.swift */,
+				E4A29F7B2910333200FB7C00 /* CueTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,10 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E448EF42290E38FA00E1B805 /* CaptionsApp.swift in Sources */,
+				E4A29F7C2910333200FB7C00 /* CueTextView.swift in Sources */,
 				E448EF44290E38FA00E1B805 /* CaptionsDocument.swift in Sources */,
 				E4A29F7529102E5700FB7C00 /* CueCellView.swift in Sources */,
 				E4CA0127290F96F7001F5ABB /* Caption.swift in Sources */,
 				E448EF46290E38FA00E1B805 /* ContentView.swift in Sources */,
+				E4A29F7A291032A400FB7C00 /* CueTimingsView.swift in Sources */,
+				E4A29F782910324100FB7C00 /* CueHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

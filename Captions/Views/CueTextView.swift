@@ -14,6 +14,7 @@ struct CueTextView: View {
     var body: some View {
         HStack {
             TextField("", text: $cue.text)
+                .textFieldStyle(.plain)
             Spacer()
         }
     }

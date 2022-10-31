@@ -15,3 +15,18 @@ struct Cue {
     let settings: String
     let text: String
 }
+
+
+struct Captions {
+    let cues: [Cue] = []
+    
+    let tempText: String
+    
+    init(fromText text: String) {
+        self.tempText = "\(text)"
+    }
+    
+    func toText() -> String {
+        return tempText
+    }
+}

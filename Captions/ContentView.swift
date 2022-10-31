@@ -24,7 +24,8 @@ struct ContentView: View {
         let fileUrl = Bundle.main.url(forResource: "subtitle", withExtension: "srt")
         do {
             let contents = try String(contentsOf: fileUrl!)
-            self.capText = contents
+            let caps = Captions(fromText: contents)
+            self.capText = caps.toText()
         } catch {
             print("Error")
         }

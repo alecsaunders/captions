@@ -8,47 +8,6 @@
 import Foundation
 
 
-struct Timings {
-    let startTime: String
-    let endTime: String
-    
-    init(timingsLine: String) {
-        startTime = Timings.parse(line: timingsLine, parseStartTime: true)
-        endTime = Timings.parse(line: timingsLine, parseStartTime: true)
-    }
-    
-    init() {
-        startTime = "00:00:00.000"
-        endTime = "00:00:00.000"
-    }
-    
-    private static func parse(line: String, parseStartTime: Bool) -> String {
-        let parts = line.components(separatedBy: " --> ")
-        if parseStartTime {
-            return parts[0].trimmingCharacters(in: .whitespacesAndNewlines)
-        } else {
-            return parts[1].trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-    }
-}
-
-
-struct Cue: Identifiable {
-    let id: UUID = UUID()
-    let identifier: Int
-    let timings: Timings
-    let settings: String
-    let text: String
-    
-    init(identifier: Int, timings: Timings, settings: String, text: String) {
-        self.identifier = identifier
-        self.timings = timings
-        self.settings = settings
-        self.text = text
-    }
-}
-
-
 struct Captions {
     var cues: [Cue]
 
@@ -102,13 +61,6 @@ struct Captions {
             return true
         }
         return false
-    }
-}
-
-
-extension String {
-    init(_ cue: Cue) {
-        self = "\(cue.identifier)\n\(cue.timings)\n\(cue.text)"
     }
 }
 

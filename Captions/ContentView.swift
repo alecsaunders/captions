@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var document: CaptionsDocument
-    @Binding var captions: Captions
+    @State var captions: Captions = Captions(fromText: "")
 
     var body: some View {
         NavigationView {
@@ -35,20 +35,12 @@ struct ContentView: View {
     }
     
     func getSubContents() -> Void {
-        let fileUrl = Bundle.main.url(forResource: "subtitle", withExtension: "srt")
-        do {
-            let contents = try String(contentsOf: fileUrl!)
-            captions = Captions(fromText: contents)
-        } catch {
-            print("Error")
-        }
+        captions = Captions(fromText: document.text)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @State static var captions = Captions(fromText: "")
-    
     static var previews: some View {
-        ContentView(document: .constant(CaptionsDocument()), captions: $captions)
+        ContentView(document: .constant(CaptionsDocument()))
     }
 }

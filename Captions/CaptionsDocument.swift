@@ -19,6 +19,14 @@ struct CaptionsDocument: FileDocument {
 
     init(text: String = "Hello, world!") {
         self.text = text
+        let fileUrl = Bundle.main.url(forResource: "subtitle", withExtension: "srt")
+        do {
+            let contents = try String(contentsOf: fileUrl!)
+            self.text = contents
+        } catch {
+            print("Error")
+        }
+        
     }
 
     static var readableContentTypes: [UTType] { [.exampleText] }

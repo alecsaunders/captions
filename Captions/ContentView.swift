@@ -22,6 +22,7 @@ struct ContentView: View {
                 }
                 
             }
+                .frame(minWidth: 200)
             VStack {
                 Text("Main body")
                 Spacer()

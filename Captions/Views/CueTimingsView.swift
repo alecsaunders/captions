@@ -13,7 +13,9 @@ struct CueTimingsView: View {
 
     var body: some View {
         HStack {
-            Text(cue.timings)
+            Text(cue.timings.startTime)
+            Text("-->")
+            Text(cue.timings.endTime)
             Spacer()
         }
     }

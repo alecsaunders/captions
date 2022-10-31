@@ -8,14 +8,39 @@
 import Foundation
 
 
-class Cue: Identifiable {
+struct Timings {
+    let startTime: String
+    let endTime: String
+    
+    init(timingsLine: String) {
+        startTime = Timings.parse(line: timingsLine, parseStartTime: true)
+        endTime = Timings.parse(line: timingsLine, parseStartTime: true)
+    }
+    
+    init() {
+        startTime = "00:00:00.000"
+        endTime = "00:00:00.000"
+    }
+    
+    private static func parse(line: String, parseStartTime: Bool) -> String {
+        let parts = line.components(separatedBy: " --> ")
+        if parseStartTime {
+            return parts[0].trimmingCharacters(in: .whitespacesAndNewlines)
+        } else {
+            return parts[1].trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+    }
+}
+
+
+struct Cue: Identifiable {
     let id: UUID = UUID()
     let identifier: Int
-    let timings: String
+    let timings: Timings
     let settings: String
     let text: String
     
-    init(identifier: Int, timings: String, settings: String, text: String) {
+    init(identifier: Int, timings: Timings, settings: String, text: String) {
         self.identifier = identifier
         self.timings = timings
         self.settings = settings
@@ -24,7 +49,7 @@ class Cue: Identifiable {
 }
 
 
-class Captions {
+struct Captions {
     var cues: [Cue]
 
 
@@ -37,7 +62,7 @@ class Captions {
         let lines = text.components(separatedBy: .newlines)
         var tmpCues: [Cue] = []
         var isNewCue = true
-        var tmpTimings = ""
+        var tmpTimings = Timings()
         var tmpSettings = ""
         var tmpText = ""
         var cueCounter = 1
@@ -49,13 +74,13 @@ class Captions {
                 }
             }
             if isTimingsLine(line: line) {
-                tmpTimings = line.trimmingCharacters(in: .whitespacesAndNewlines)
+                tmpTimings = Timings(timingsLine: line)
                 continue
             }
             if self.isEmptyLine(line: line) {
                 let tmpCue = Cue(identifier: cueCounter, timings: tmpTimings, settings: tmpSettings, text: tmpText)
                 tmpCues.append(tmpCue)
-                tmpTimings = ""
+                tmpTimings = Timings()
                 tmpSettings = ""
                 tmpText = ""
                 isNewCue = true

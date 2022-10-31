@@ -90,12 +90,12 @@ struct Timings {
 }
 
 
-struct Cue: Identifiable {
+class Cue: Identifiable {
     let id: UUID = UUID()
     let identifier: Int
     let timings: Timings
     let settings: String
-    let text: String
+    var text: String
     
     init(identifier: Int, timings: Timings, settings: String, text: String) {
         self.identifier = identifier

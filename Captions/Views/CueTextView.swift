@@ -13,7 +13,7 @@ struct CueTextView: View {
 
     var body: some View {
         HStack {
-            Text(cue.text)
+            TextField("", text: $cue.text)
             Spacer()
         }
     }

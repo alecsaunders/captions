@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct CaptionsApp: App {
-    @State var captionText = ""
+    @State var captions: Captions = Captions(fromText: "")
 
     var body: some Scene {
         DocumentGroup(newDocument: CaptionsDocument()) { file in
-            ContentView(document: file.$document, capText: $captionText)
+            ContentView(document: file.$document, captions: $captions)
         }
     }
 }

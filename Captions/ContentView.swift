@@ -9,11 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var document: CaptionsDocument
-    @Binding var capText: String
+    @Binding var captions: Captions
 
     var body: some View {
         VStack {
-            TextEditor(text: $capText)
+            ForEach($captions.cues) { $cue in
+                HStack {
+                    CueView(cue: $cue)
+                    Spacer()
+                }
+            }
             Button("OK") {
                 getSubContents()
             }
@@ -24,8 +29,7 @@ struct ContentView: View {
         let fileUrl = Bundle.main.url(forResource: "subtitle", withExtension: "srt")
         do {
             let contents = try String(contentsOf: fileUrl!)
-            let caps = Captions(fromText: contents)
-            self.capText = String(caps)
+            captions = Captions(fromText: contents)
         } catch {
             print("Error")
         }
@@ -33,9 +37,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @State static var capText = ""
+    @State static var captions = Captions(fromText: "")
     
     static var previews: some View {
-        ContentView(document: .constant(CaptionsDocument()), capText: $capText)
+        ContentView(document: .constant(CaptionsDocument()), captions: $captions)
     }
 }

@@ -8,18 +8,26 @@
 import Foundation
 
 
-struct Cue {
+class Cue: Identifiable {
     let id: UUID = UUID()
     let identifier: Int
     let timings: String
     let settings: String
     let text: String
+    
+    init(identifier: Int, timings: String, settings: String, text: String) {
+        self.identifier = identifier
+        self.timings = timings
+        self.settings = settings
+        self.text = text
+    }
 }
 
 
-struct Captions {
-    let cues: [Cue]
-    
+class Captions {
+    var cues: [Cue]
+
+
     init(fromText text: String) {
         self.cues = Captions.parse(fromText: text)
     }

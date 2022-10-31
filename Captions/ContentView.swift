@@ -9,12 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var document: CaptionsDocument
-    @State var captions: Captions = Captions(fromText: "")
 
     var body: some View {
         NavigationView {
             VStack {
-                ForEach($captions.cues) { $cue in
+                ForEach($document.captions.cues) { $cue in
                     HStack {
                         CueView(cue: $cue)
                         Spacer()
@@ -25,17 +24,11 @@ struct ContentView: View {
                 .frame(minWidth: 200)
             VStack {
                 Text("Main body")
+                    .padding(25)
                 Spacer()
-                Button("OK") {
-                    getSubContents()
-                }
             }
             
         }
-    }
-    
-    func getSubContents() -> Void {
-        captions = Captions(fromText: document.text)
     }
 }
 

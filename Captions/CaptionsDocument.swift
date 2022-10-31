@@ -9,27 +9,20 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 extension UTType {
-    static var exampleText: UTType {
-        UTType(importedAs: "com.example.plain-text")
+    static var webVTTDocument: UTType {
+        UTType(importedAs: "com.example.webvtt")
     }
 }
 
 struct CaptionsDocument: FileDocument {
     var text: String
+    var captions: Captions = Captions(fromText: "")
 
     init(text: String = "Hello, world!") {
-        self.text = text
-        let fileUrl = Bundle.main.url(forResource: "subtitle", withExtension: "srt")
-        do {
-            let contents = try String(contentsOf: fileUrl!)
-            self.text = contents
-        } catch {
-            print("Error")
-        }
-        
+        self.text = text        
     }
 
-    static var readableContentTypes: [UTType] { [.exampleText] }
+    static var readableContentTypes: [UTType] { [.webVTTDocument] }
 
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
@@ -38,6 +31,7 @@ struct CaptionsDocument: FileDocument {
             throw CocoaError(.fileReadCorruptFile)
         }
         text = string
+        captions = Captions(fromText: string)
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {

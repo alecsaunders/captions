@@ -26,7 +26,7 @@ struct Captions {
         var tmpText = ""
         var cueCounter = 1
         for idx in 0..<lines.count {
-            var line = lines[idx]
+            let line = lines[idx]
             if line.trimmingCharacters(in: .whitespacesAndNewlines) == "WEBVTT" {
                 continue
             }
@@ -78,6 +78,6 @@ extension String {
         let cueStrings = captions.cues.map({ cue in
             String(cue)
         })
-        self = "WEBVTT\n\n\(cueStrings.joined(separator: "\n\n"))"
+        self = "WEBVTT\n\n\(cueStrings.joined(separator: "\n\n"))\n"
     }
 }

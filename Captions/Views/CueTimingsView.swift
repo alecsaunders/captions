@@ -13,9 +13,9 @@ struct CueTimingsView: View {
 
     var body: some View {
         HStack {
-            Text(String(cue.timings.startTime))
+            TimestampButton(cue: $cue, start: true)
             Text("-->")
-            Text(String(cue.timings.endTime))
+            TimestampButton(cue: $cue, start: false)
             Spacer()
         }
     }

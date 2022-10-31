@@ -20,6 +20,7 @@
 		E4A29F7A291032A400FB7C00 /* CueTimingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F79291032A400FB7C00 /* CueTimingsView.swift */; };
 		E4A29F7C2910333200FB7C00 /* CueTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F7B2910333200FB7C00 /* CueTextView.swift */; };
 		E4A29F7E29103C4F00FB7C00 /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F7D29103C4F00FB7C00 /* Cue.swift */; };
+		E4A29F80291062D800FB7C00 /* TimestampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F7F291062D800FB7C00 /* TimestampButton.swift */; };
 		E4CA0125290F9445001F5ABB /* subtitle.srt in Resources */ = {isa = PBXBuildFile; fileRef = E4CA0124290F9445001F5ABB /* subtitle.srt */; };
 		E4CA0127290F96F7001F5ABB /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA0126290F96F6001F5ABB /* Caption.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		E4A29F79291032A400FB7C00 /* CueTimingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueTimingsView.swift; sourceTree = "<group>"; };
 		E4A29F7B2910333200FB7C00 /* CueTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueTextView.swift; sourceTree = "<group>"; };
 		E4A29F7D29103C4F00FB7C00 /* Cue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
+		E4A29F7F291062D800FB7C00 /* TimestampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampButton.swift; sourceTree = "<group>"; };
 		E4CA0124290F9445001F5ABB /* subtitle.srt */ = {isa = PBXFileReference; lastKnownFileType = text; path = subtitle.srt; sourceTree = "<group>"; };
 		E4CA0126290F96F6001F5ABB /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				E4A29F772910324100FB7C00 /* CueHeaderView.swift */,
 				E4A29F79291032A400FB7C00 /* CueTimingsView.swift */,
 				E4A29F7B2910333200FB7C00 /* CueTextView.swift */,
+				E4A29F7F291062D800FB7C00 /* TimestampButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				E448EF46290E38FA00E1B805 /* ContentView.swift in Sources */,
 				E4A29F7A291032A400FB7C00 /* CueTimingsView.swift in Sources */,
 				E4A29F7E29103C4F00FB7C00 /* Cue.swift in Sources */,
+				E4A29F80291062D800FB7C00 /* TimestampButton.swift in Sources */,
 				E4A29F782910324100FB7C00 /* CueHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

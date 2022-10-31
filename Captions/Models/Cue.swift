@@ -97,6 +97,13 @@ class Cue: Identifiable {
     let settings: String
     var text: String
     
+    init() {
+        self.identifier = 0
+        self.timings = Timings(timingsLine: "00:00.000 --> 00:00.000")
+        self.settings = ""
+        self.text = "New Caption"
+    }
+    
     init(identifier: Int, timings: Timings, settings: String, text: String) {
         self.identifier = identifier
         self.timings = timings

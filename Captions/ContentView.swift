@@ -12,16 +12,19 @@ struct ContentView: View {
     @Binding var captions: Captions
 
     var body: some View {
-        VStack {
-            ForEach($captions.cues) { $cue in
-                HStack {
-                    CueView(cue: $cue)
-                    Spacer()
+        NavigationView {
+            VStack {
+                ForEach($captions.cues) { $cue in
+                    HStack {
+                        CueView(cue: $cue)
+                        Spacer()
+                    }
+                }
+                Button("OK") {
+                    getSubContents()
                 }
             }
-            Button("OK") {
-                getSubContents()
-            }
+            Text("Main body")
         }
     }
     

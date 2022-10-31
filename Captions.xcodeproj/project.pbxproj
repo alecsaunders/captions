@@ -15,6 +15,7 @@
 		E448EF57290E38FB00E1B805 /* CaptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF56290E38FB00E1B805 /* CaptionsTests.swift */; };
 		E448EF61290E38FB00E1B805 /* CaptionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF60290E38FB00E1B805 /* CaptionsUITests.swift */; };
 		E448EF63290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF62290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift */; };
+		E4CA0125290F9445001F5ABB /* subtitle.srt in Resources */ = {isa = PBXBuildFile; fileRef = E4CA0124290F9445001F5ABB /* subtitle.srt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		E448EF5C290E38FB00E1B805 /* CaptionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E448EF60290E38FB00E1B805 /* CaptionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsUITests.swift; sourceTree = "<group>"; };
 		E448EF62290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4CA0124290F9445001F5ABB /* subtitle.srt */ = {isa = PBXFileReference; lastKnownFileType = text; path = subtitle.srt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		E448EF35290E38FA00E1B805 = {
 			isa = PBXGroup;
 			children = (
+				E4CA0124290F9445001F5ABB /* subtitle.srt */,
 				E448EF40290E38FA00E1B805 /* Captions */,
 				E448EF55290E38FB00E1B805 /* CaptionsTests */,
 				E448EF5F290E38FB00E1B805 /* CaptionsUITests */,
@@ -240,6 +243,7 @@
 			files = (
 				E448EF4B290E38FB00E1B805 /* Preview Assets.xcassets in Resources */,
 				E448EF48290E38FB00E1B805 /* Assets.xcassets in Resources */,
+				E4CA0125290F9445001F5ABB /* subtitle.srt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

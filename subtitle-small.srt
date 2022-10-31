@@ -1,0 +1,27 @@
+1
+00:00:33,200 --> 00:00:36,100
+<i>The world is changed.</i>
+
+2
+00:00:36,400 --> 00:00:39,300
+<i>I feel it in the water.</i>
+
+3
+00:00:40,200 --> 00:00:42,900
+<i>I feel it in the earth.</i>
+
+4
+00:00:44,700 --> 00:00:47,500
+<i>I smell it in the air.</i>
+
+5
+00:00:48,100 --> 00:00:49,900
+<i>Much that once was...</i>
+
+6
+00:00:50,200 --> 00:00:51,600
+<i>...is lost.</i>
+
+7
+00:00:52,400 --> 00:00:55,300
+<i>For none now live who remember it.</i>

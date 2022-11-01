@@ -10,14 +10,12 @@ import SwiftUI
 struct TimestampButton: View {
     @Binding var cue: Cue
     @State var start: Bool = false
-    @Binding var showShiftControls: Bool
-    @Binding var showPopover: Bool
+    @Binding var shiftControlOpts: ShiftControlOptions
     
     var body: some View {
         Button(String(start ? cue.timings.startTime: cue.timings.endTime)) {
-            cue.timings.startTime.add(milliseconds: 1500)
-            showPopover = true
-            showShiftControls = true
+            shiftControlOpts.showShiftPopover = true
+            shiftControlOpts.isStart = start
         }
             .buttonStyle(.plain)
     }
@@ -25,10 +23,9 @@ struct TimestampButton: View {
 
 struct TimestampButton_Previews: PreviewProvider {
     @State static var cue: Cue = Cue()
-    @State static var showShiftControls: Bool = false
-    @State static var showPopover: Bool = false
+    @State static var shiftControlOpts = ShiftControlOptions()
     
     static var previews: some View {
-        TimestampButton(cue: $cue, showShiftControls: $showShiftControls, showPopover: $showPopover)
+        TimestampButton(cue: $cue, shiftControlOpts: $shiftControlOpts)
     }
 }

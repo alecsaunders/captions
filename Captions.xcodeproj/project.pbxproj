@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44828ED2911739A00332221 /* ShiftControlOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44828EC2911739A00332221 /* ShiftControlOptions.swift */; };
 		E448EF42290E38FA00E1B805 /* CaptionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF41290E38FA00E1B805 /* CaptionsApp.swift */; };
 		E448EF44290E38FA00E1B805 /* CaptionsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF43290E38FA00E1B805 /* CaptionsDocument.swift */; };
 		E448EF46290E38FA00E1B805 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF45290E38FA00E1B805 /* ContentView.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E44828EC2911739A00332221 /* ShiftControlOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftControlOptions.swift; sourceTree = "<group>"; };
 		E448EF3E290E38FA00E1B805 /* Captions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Captions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E448EF41290E38FA00E1B805 /* CaptionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsApp.swift; sourceTree = "<group>"; };
 		E448EF43290E38FA00E1B805 /* CaptionsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsDocument.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				E4A29F7D29103C4F00FB7C00 /* Cue.swift */,
 				E4CA0126290F96F6001F5ABB /* Caption.swift */,
+				E44828EC2911739A00332221 /* ShiftControlOptions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				E448EF46290E38FA00E1B805 /* ContentView.swift in Sources */,
 				E4A29F7A291032A400FB7C00 /* CueTimingsView.swift in Sources */,
 				E4A29F7E29103C4F00FB7C00 /* Cue.swift in Sources */,
+				E44828ED2911739A00332221 /* ShiftControlOptions.swift in Sources */,
 				E4A29F80291062D800FB7C00 /* TimestampButton.swift in Sources */,
 				E4A29F782910324100FB7C00 /* CueHeaderView.swift in Sources */,
 			);

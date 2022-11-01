@@ -11,14 +11,13 @@ import SwiftUI
 struct CueTimingsView: View {
     @Binding var cue: Cue
     @Binding var highlighted: Cue?
-    @Binding var showShiftControls: Bool
-    @Binding var showPopover: Bool
+    @Binding var shiftControlOpts: ShiftControlOptions
 
     var body: some View {
         HStack {
-            TimestampButton(cue: $cue, start: true, showShiftControls: $showShiftControls, showPopover: $showPopover)
+            TimestampButton(cue: $cue, start: true, shiftControlOpts: $shiftControlOpts)
             Text("-->")
-            TimestampButton(cue: $cue, start: false, showShiftControls: $showShiftControls, showPopover: $showPopover)            
+            TimestampButton(cue: $cue, start: false, shiftControlOpts: $shiftControlOpts)            
             Spacer()
         }
     }

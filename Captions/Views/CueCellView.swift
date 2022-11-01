@@ -13,12 +13,15 @@ struct CueView: View {
     @Binding var highlighted: Cue?
     @Binding var showShiftControls: Bool
     @State var showPopover: Bool = false
+    @State var startTimeSelected: Bool = false
+    @State var shiftControlOpts = ShiftControlOptions()
+
 
     var body: some View {
         VStack {
             VStack {
                 CueHeaderView(cue: $cue)
-                CueTimingsView(cue: $cue, highlighted: $highlighted, showShiftControls: $showShiftControls, showPopover: $showPopover)
+                CueTimingsView(cue: $cue, highlighted: $highlighted, shiftControlOpts: $shiftControlOpts)
                 CueTextView(cue: $cue)
             }
                 .onHover { hovering in
@@ -34,7 +37,7 @@ struct CueView: View {
                 .padding(.leading, 8)
             Divider()
         }
-        .popover(isPresented: $showPopover) {
+        .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 25 : 175, y: 5, width: 0, height: 0))) ) {
             HStack {
                 Button("-") {
                     print("subtract")

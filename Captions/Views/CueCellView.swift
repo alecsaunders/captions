@@ -35,8 +35,16 @@ struct CueView: View {
             Divider()
         }
         .popover(isPresented: $showPopover) {
-            Text("Popover")
-                .padding(10)
+            HStack {
+                Button("-") {
+                    print("subtract")
+                }
+                Text("0.0")
+                Button("+") {
+                    print("add")
+                }
+            }
+            .padding(20)
         }
     }
 }

@@ -13,7 +13,7 @@ struct TimestampButton: View {
     
     var body: some View {
         Button(String(start ? cue.timings.startTime: cue.timings.endTime)) {
-            print("Click \(start ? "start" : "end") time")
+            cue.timings.startTime.add(milliseconds: 1500)
         }
             .buttonStyle(.plain)
     }

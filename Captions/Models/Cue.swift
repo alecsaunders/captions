@@ -9,10 +9,14 @@ import Foundation
 
 
 struct Timestamp {
-    private let timeValue: Double
+    private var timeValue: Double
     
     init(_ timeValue: Double) {
         self.timeValue = timeValue
+    }
+    
+    mutating func add(milliseconds: Int) {
+        timeValue += Double(milliseconds) / 1000.0
     }
 }
 
@@ -36,8 +40,8 @@ extension Timestamp {
 
 
 struct Timings {
-    let startTime: Timestamp
-    let endTime: Timestamp
+    var startTime: Timestamp
+    var endTime: Timestamp
     
     init(timingsLine: String) {
         startTime = Timings.parse(line: timingsLine, parseStartTime: true)
@@ -90,11 +94,11 @@ struct Timings {
 }
 
 
-class Cue: Identifiable {
+struct Cue: Identifiable {
     let id: UUID = UUID()
-    let identifier: Int
-    let timings: Timings
-    let settings: String
+    var identifier: Int
+    var timings: Timings
+    var settings: String
     var text: String
     
     init() {

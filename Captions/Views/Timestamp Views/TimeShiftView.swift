@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TimeShiftView: View {
+    @Binding var captions: Captions
     @Binding var cue: Cue
     @Binding var shiftControlOpts: ShiftControlOptions
     
@@ -28,14 +29,19 @@ struct TimeShiftView: View {
                         print("Shift timestamp by \(shiftControlOpts.timeShiftLabel)")
                     }
                         .disabled(shiftControlOpts.timeShiftValue == 0)
-                    Menu(content: {
-                        Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") and remaining…") {}
+                    Menu("") {
+                        Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") and remaining…") {
+                            
+                        }
                         Divider()
-                        Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") only") {}
-                        Button("\(shiftControlOpts.shiftSymbol) both") {}
-                    }, label: {
-                        Image(systemName: "down")
-                    })
+                        Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") only") {
+                            self.shiftSingleTimestamp()
+                            
+                        }
+                        Button("\(shiftControlOpts.shiftSymbol) both") {
+                            self.shiftBothTimestamps()
+                        }
+                    }
                         .disabled(shiftControlOpts.timeShiftValue == 0)
                 }
                     .frame(minWidth: 50)
@@ -49,13 +55,27 @@ struct TimeShiftView: View {
                 .font(Font.system(.body, design: .monospaced))
         }
     }
+    
+    private func shiftSingleTimestamp() {
+        if shiftControlOpts.isStart {
+            cue.timings.startTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+        } else {
+            cue.timings.endTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+        }
+    }
+    
+    private func shiftBothTimestamps() {
+        cue.timings.startTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+        cue.timings.endTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+    }
 }
 
 struct TimeShiftView_Previews: PreviewProvider {
+    @State static var captions = Captions(fromText: "")
     @State static var cue = Cue()
     @State static var shiftControlOpts = ShiftControlOptions()
     
     static var previews: some View {
-        TimeShiftView(cue: $cue, shiftControlOpts: $shiftControlOpts)
+        TimeShiftView(captions: $captions, cue: $cue, shiftControlOpts: $shiftControlOpts)
     }
 }

@@ -17,7 +17,7 @@ struct ContentView: View {
                 VStack {
                     ForEach($document.captions.cues) { $cue in
                         HStack {
-                            CueView(cue: $cue, highlighted: $highlighted)
+                            CueView(captions: $document.captions, cue: $cue, highlighted: $highlighted)
                             Spacer()
                         }
                     }

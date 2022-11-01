@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct CueView: View {
+    @Binding var captions: Captions
     @Binding var cue: Cue
     @Binding var highlighted: Cue?
     @State var shiftControlOpts = ShiftControlOptions()
@@ -34,7 +35,7 @@ struct CueView: View {
             Divider()
         }
         .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {
-            TimeShiftView(cue: $cue, shiftControlOpts: $shiftControlOpts)
+            TimeShiftView(captions: $captions, cue: $cue, shiftControlOpts: $shiftControlOpts)
                 .frame(minWidth: 175)
                 .padding(20)
         }

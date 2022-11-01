@@ -18,6 +18,10 @@ struct TimeShiftView: View {
                 .frame(minWidth: 50, alignment: .trailing)
                 .font(Font.system(.body, design: .monospaced))
             TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: true)
+            Spacer()
+            Button("Shift") {
+                print("shift timestamp")
+            }
         }
             .padding(20)
     }

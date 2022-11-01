@@ -37,10 +37,14 @@ struct CueView: View {
                 .padding(.leading, 8)
             Divider()
         }
-        .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 25 : 175, y: 5, width: 0, height: 0))) ) {
+        .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {
             HStack {
                 Button("-") {
-                    print("subtract")
+                    if CGKeyCode.optionKeyPressed {
+                        print("Double subtract")
+                    } else {
+                        print("subtract")
+                    }
                 }
                 Text("0.0")
                 Button("+") {

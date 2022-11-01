@@ -11,17 +11,19 @@ import SwiftUI
 struct CueView: View {
     @Binding var cue: Cue
     @Binding var highlighted: Cue?
+    @Binding var showShiftControls: Bool
 
     var body: some View {
         VStack {
             VStack {
                 CueHeaderView(cue: $cue)
-                CueTimingsView(cue: $cue)
+                CueTimingsView(cue: $cue, highlighted: $highlighted, showShiftControls: $showShiftControls)
                 CueTextView(cue: $cue)
             }
                 .onHover { hovering in
                     if hovering {
                         highlighted = cue
+                        showShiftControls = false
                     }
                 }
                 .padding(5)

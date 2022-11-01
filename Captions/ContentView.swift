@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Binding var document: CaptionsDocument
     @State var highlighted: Cue?
+    @State var showShiftControls: Bool = false
 
     var body: some View {
         NavigationView {
@@ -17,7 +18,7 @@ struct ContentView: View {
                 VStack {
                     ForEach($document.captions.cues) { $cue in
                         HStack {
-                            CueView(cue: $cue, highlighted: $highlighted)
+                            CueView(cue: $cue, highlighted: $highlighted, showShiftControls: $showShiftControls)
                             Spacer()
                         }
                     }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CueView: View {
     @Binding var cue: Cue
+    @Binding var highlighted: Cue?
 
     var body: some View {
         VStack {
@@ -18,5 +19,14 @@ struct CueView: View {
             CueTextView(cue: $cue)
             Divider()
         }
+            .onHover { hovering in
+                if hovering {
+                    highlighted = cue
+                }
+            }
+            .padding(5)
+            .background(cue.id == highlighted?.id ? .secondary.opacity(0.125) : Color.clear)
+            .cornerRadius(8)
+            .padding(.leading, 5)
     }
 }

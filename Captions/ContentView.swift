@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var document: CaptionsDocument
+    @State var highlighted: Cue?
 
     var body: some View {
         NavigationView {
             VStack {
                 ForEach($document.captions.cues) { $cue in
                     HStack {
-                        CueView(cue: $cue)
+                        CueView(cue: $cue, highlighted: $highlighted)
                         Spacer()
                     }
                 }

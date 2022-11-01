@@ -15,9 +15,9 @@ struct TimeShiftButton: View {
     var body: some View {
         Button(addTime ? "+" : "-") {
             if CGKeyCode.optionKeyPressed {
-                print("\(addTime ? "+" : "-") 1000")
+                shiftControlOpts.timeShiftValue += 1000 * (addTime ? 1 : -1)
             } else {
-                print("\(addTime ? "+" : "-") 100")
+                shiftControlOpts.timeShiftValue += 100 * (addTime ? 1 : -1)
             }
         }
     }

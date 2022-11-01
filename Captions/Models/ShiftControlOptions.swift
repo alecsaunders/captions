@@ -11,5 +11,8 @@ import Foundation
 struct ShiftControlOptions {
     var showShiftPopover: Bool = false
     var isStart: Bool = true
-    var timeShiftLabel: String = "0.0"
+    var timeShiftValue: Int = 0
+    var timeShiftLabel: String {
+        return String(format: "%.3f", Double(self.timeShiftValue) / 1000.0)
+    }
 }

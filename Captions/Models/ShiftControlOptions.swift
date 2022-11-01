@@ -15,4 +15,9 @@ struct ShiftControlOptions {
     var timeShiftLabel: String {
         return String(format: "%.3f", Double(self.timeShiftValue) / 1000.0)
     }
+    
+    mutating func resetOptions() -> Void {
+        showShiftPopover = false
+        timeShiftValue = 0
+    }
 }

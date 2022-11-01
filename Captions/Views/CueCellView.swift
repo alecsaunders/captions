@@ -11,9 +11,6 @@ import SwiftUI
 struct CueView: View {
     @Binding var cue: Cue
     @Binding var highlighted: Cue?
-    @Binding var showShiftControls: Bool
-    @State var showPopover: Bool = false
-    @State var startTimeSelected: Bool = false
     @State var shiftControlOpts = ShiftControlOptions()
 
 
@@ -27,8 +24,7 @@ struct CueView: View {
                 .onHover { hovering in
                     if hovering {
                         highlighted = cue
-                        showShiftControls = false
-                        showPopover = false
+                        shiftControlOpts.resetOptions()
                     }
                 }
                 .padding(5)

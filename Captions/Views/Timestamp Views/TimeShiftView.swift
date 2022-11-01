@@ -26,12 +26,12 @@ struct TimeShiftView: View {
 
                 ControlGroup {
                     Button(shiftControlOpts.shiftSymbol) {
-                        print("Shift timestamp by \(shiftControlOpts.timeShiftLabel)")
+                        shiftAllRemainingTimestamps()
                     }
                         .disabled(shiftControlOpts.timeShiftValue == 0)
                     Menu("") {
                         Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") and remaining…") {
-                            
+                            shiftAllRemainingTimestamps()
                         }
                         Divider()
                         Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") only") {
@@ -67,6 +67,23 @@ struct TimeShiftView: View {
     private func shiftBothTimestamps() {
         cue.timings.startTime.add(milliseconds: shiftControlOpts.timeShiftValue)
         cue.timings.endTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+    }
+    
+    private func shiftAllRemainingTimestamps() {
+        var shouldShiftTimestamp = false
+        for idx in 0..<captions.cues.count {
+            if shouldShiftTimestamp {
+                captions.cues[idx].timings.startTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+                captions.cues[idx].timings.endTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+            }
+            if captions.cues[idx].id == cue.id {
+                if shiftControlOpts.isStart {
+                    captions.cues[idx].timings.startTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+                }
+                captions.cues[idx].timings.endTime.add(milliseconds: shiftControlOpts.timeShiftValue)
+                shouldShiftTimestamp = true
+            }
+        }
     }
 }
 

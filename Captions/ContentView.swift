@@ -13,16 +13,19 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                ForEach($document.captions.cues) { $cue in
-                    HStack {
-                        CueView(cue: $cue, highlighted: $highlighted)
-                        Spacer()
+            ScrollView {
+                VStack {
+                    ForEach($document.captions.cues) { $cue in
+                        HStack {
+                            CueView(cue: $cue, highlighted: $highlighted)
+                            Spacer()
+                        }
                     }
+                    
                 }
-                
             }
-                .frame(minWidth: 200)
+                .frame(minWidth: 250)
+            
             VStack {
                 Text("Main body")
                     .padding(25)

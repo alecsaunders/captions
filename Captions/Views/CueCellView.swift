@@ -14,19 +14,22 @@ struct CueView: View {
 
     var body: some View {
         VStack {
-            CueHeaderView(cue: $cue)
-            CueTimingsView(cue: $cue)
-            CueTextView(cue: $cue)
+            VStack {
+                CueHeaderView(cue: $cue)
+                CueTimingsView(cue: $cue)
+                CueTextView(cue: $cue)
+            }
+                .onHover { hovering in
+                    if hovering {
+                        highlighted = cue
+                    }
+                }
+                .padding(5)
+                .background(cue.id == highlighted?.id ? .secondary.opacity(0.125) : Color.clear)
+                .cornerRadius(8)
+                .padding(.leading, 8)
             Divider()
         }
-            .onHover { hovering in
-                if hovering {
-                    highlighted = cue
-                }
-            }
-            .padding(5)
-            .background(cue.id == highlighted?.id ? .secondary.opacity(0.125) : Color.clear)
-            .cornerRadius(8)
-            .padding(.leading, 5)
+        
     }
 }

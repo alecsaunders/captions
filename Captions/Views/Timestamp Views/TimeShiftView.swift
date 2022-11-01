@@ -15,7 +15,7 @@ struct TimeShiftView: View {
         HStack {
             TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: false)
             Text(shiftControlOpts.timeShiftLabel)
-                .frame(minWidth: 50, alignment: .trailing)
+                .frame(minWidth: 55, alignment: .trailing)
                 .font(Font.system(.body, design: .monospaced))
             TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: true)
             Spacer()
@@ -23,7 +23,6 @@ struct TimeShiftView: View {
                 print("shift timestamp")
             }
         }
-            .padding(20)
     }
 }
 

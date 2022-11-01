@@ -36,6 +36,7 @@ struct CueView: View {
         .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {
             TimeShiftView(cue: $cue, shiftControlOpts: $shiftControlOpts)
                 .frame(minWidth: 150)
+                .padding(20)
         }
     }
 }

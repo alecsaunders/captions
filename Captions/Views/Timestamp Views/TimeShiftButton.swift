@@ -13,13 +13,16 @@ struct TimeShiftButton: View {
     let addTime: Bool
     
     var body: some View {
-        Button(addTime ? "+" : "-") {
+        Button {
             if CGKeyCode.optionKeyPressed {
                 shiftControlOpts.timeShiftValue += 1000 * (addTime ? 1 : -1)
             } else {
                 shiftControlOpts.timeShiftValue += 100 * (addTime ? 1 : -1)
             }
+        } label: {
+            Label("", systemImage: addTime ? "plus.circle.fill" : "minus.circle.fill")
         }
+            .buttonStyle(.plain)
     }
 }
 

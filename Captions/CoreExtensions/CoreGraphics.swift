@@ -10,7 +10,7 @@ import CoreGraphics
 
 extension CGKeyCode
 {
-    static let kVK_Option     : CGKeyCode = 0x3A
+    static let kVK_Option: CGKeyCode = 0x3A
     static let kVK_RightOption: CGKeyCode = 0x3D
     
     var isPressed: Bool {

@@ -11,4 +11,5 @@ import Foundation
 struct ShiftControlOptions {
     var showShiftPopover: Bool = false
     var isStart: Bool = true
+    var timeShiftLabel: String = "0.0"
 }

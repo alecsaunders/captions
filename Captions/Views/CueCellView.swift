@@ -38,20 +38,7 @@ struct CueView: View {
             Divider()
         }
         .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {
-            HStack {
-                Button("-") {
-                    if CGKeyCode.optionKeyPressed {
-                        print("Double subtract")
-                    } else {
-                        print("subtract")
-                    }
-                }
-                Text("0.0")
-                Button("+") {
-                    print("add")
-                }
-            }
-            .padding(20)
+            TimeShiftView(cue: $cue, shiftControlOpts: $shiftControlOpts)
         }
     }
 }

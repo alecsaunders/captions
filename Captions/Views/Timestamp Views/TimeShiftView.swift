@@ -12,15 +12,17 @@ struct TimeShiftView: View {
     @Binding var shiftControlOpts: ShiftControlOptions
     
     var body: some View {
-        HStack {
+        HStack(spacing: 5) {
             TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: false)
             Text(shiftControlOpts.timeShiftLabel)
-                .frame(minWidth: 55, alignment: .trailing)
+                .frame(minWidth: 60, alignment: .trailing)
                 .font(Font.system(.body, design: .monospaced))
+                .padding(3)
             TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: true)
+                       
             Spacer()
             Button("Shift") {
-                print("shift timestamp")
+                print("shift \(shiftControlOpts.timeShiftLabel)")
             }
         }
     }

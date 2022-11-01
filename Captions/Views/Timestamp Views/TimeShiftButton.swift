@@ -20,7 +20,8 @@ struct TimeShiftButton: View {
                 shiftControlOpts.timeShiftValue += 100 * (addTime ? 1 : -1)
             }
         } label: {
-            Label("", systemImage: addTime ? "plus.circle.fill" : "minus.circle.fill")
+            Image(systemName: addTime ? "plus.circle.fill" : "minus.circle.fill")
+                .padding(0)
         }
             .buttonStyle(.plain)
     }

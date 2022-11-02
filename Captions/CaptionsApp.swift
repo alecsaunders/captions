@@ -11,7 +11,7 @@ import SwiftUI
 struct CaptionsApp: App {
     var body: some Scene {
         DocumentGroup(newDocument: CaptionsDocument()) { file in
-            ContentView(document: file.$document)
+            ContentView(document: file.$document, file: file)
         }
     }
 }

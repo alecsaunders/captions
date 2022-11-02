@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVKit
 
 
 struct CueHeaderView: View {
     @Binding var cue: Cue
+    @Binding var videoPlayer: AVPlayer
     @State var showPlayIcon: Bool = false
 
     var body: some View {
@@ -21,7 +23,8 @@ struct CueHeaderView: View {
                     .foregroundColor(.gray)
                 if showPlayIcon {
                     Button {
-                        print("play")
+                        videoPlayer.seek(to: CMTime(cue.timings.startTime), toleranceBefore: .zero, toleranceAfter: .zero)
+                        videoPlayer.play()
                     } label: {
                         Image(systemName: "play.circle")
                     }

@@ -7,9 +7,11 @@
 
 import SwiftUI
 import AVKit
+import MediaPlayer
 
 struct ContentView: View {
     @Binding var document: CaptionsDocument
+    var file: FileDocumentConfiguration<CaptionsDocument>
     @State var highlighted: Cue?
 
     var body: some View {
@@ -17,7 +19,7 @@ struct ContentView: View {
             List {
                 ForEach($document.captions.cues) { $cue in
                     HStack {
-                        CueView(captions: $document.captions, cue: $cue, highlighted: $highlighted)
+                        CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
                         Spacer()
                     }
                     .contextMenu {
@@ -41,7 +43,7 @@ struct ContentView: View {
                     if panel.runModal() == .OK {
                         if let fileUrl = panel.url {
                             document.playerUrl = fileUrl
-                            document.loadPlayer()
+                            document.loadPlayer(subsUrl: file.fileURL!)
                         }
                     }
                 } label: {
@@ -54,8 +56,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(document: .constant(CaptionsDocument()))
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(document: .constant(CaptionsDocument()))
+//    }
+//}

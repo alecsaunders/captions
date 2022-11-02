@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVKit
 
 
 struct CueView: View {
     @Binding var captions: Captions
+    @Binding var videoPlayer: AVPlayer
     @Binding var cue: Cue
     @Binding var highlighted: Cue?
     @State var shiftControlOpts = ShiftControlOptions()
@@ -20,7 +22,7 @@ struct CueView: View {
         VStack {
             ZStack {
                 VStack(spacing: 5) {
-                    CueHeaderView(cue: $cue)
+                    CueHeaderView(cue: $cue, videoPlayer: $videoPlayer)
                     CueTimingsView(cue: $cue, highlighted: $highlighted, shiftControlOpts: $shiftControlOpts)
                         .padding(.bottom, 10)
                     CueTextView(cue: $cue)

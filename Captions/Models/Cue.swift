@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import AVKit
 
 
 struct Timestamp {
-    private var timeValue: Double
+    var timeValue: Double
     
     init(_ timeValue: Double) {
         self.timeValue = timeValue
@@ -120,6 +121,13 @@ struct Cue: Identifiable {
 extension String {
     init(_ timestamp: Timestamp) {
         self = "\(String(format: "%02d", timestamp.hour())):\(String(format: "%02d", timestamp.minute())):\(String(format: "%02d", timestamp.second())).\(String(format: "%03d", timestamp.millisecond()))"
+    }
+}
+
+
+extension CMTime {
+    init(_ timestamp: Timestamp) {
+        self = CMTime(value: Int64(timestamp.timeValue * 1000), timescale: 1000)
     }
 }
 

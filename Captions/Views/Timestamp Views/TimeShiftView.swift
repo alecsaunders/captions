@@ -27,19 +27,22 @@ struct TimeShiftView: View {
                 ControlGroup {
                     Button(shiftControlOpts.shiftSymbol) {
                         shiftAllRemainingTimestamps()
+                        shiftControlOpts.resetOptions()
                     }
                         .disabled(shiftControlOpts.timeShiftValue == 0)
                     Menu("") {
                         Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") and remaining…") {
                             shiftAllRemainingTimestamps()
+                            shiftControlOpts.resetOptions()
                         }
                         Divider()
                         Button("\(shiftControlOpts.shiftSymbol) \(shiftControlOpts.isStart ? "start" : "end") only") {
                             self.shiftSingleTimestamp()
-                            
+                            shiftControlOpts.resetOptions()
                         }
                         Button("\(shiftControlOpts.shiftSymbol) both") {
                             self.shiftBothTimestamps()
+                            shiftControlOpts.resetOptions()
                         }
                     }
                         .disabled(shiftControlOpts.timeShiftValue == 0)

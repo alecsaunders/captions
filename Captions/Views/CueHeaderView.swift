@@ -23,7 +23,7 @@ struct CueHeaderView: View {
                     .foregroundColor(.gray)
                 if showPlayIcon {
                     Button {
-                        videoPlayer.seek(to: CMTime(cue.timings.startTime), toleranceBefore: .zero, toleranceAfter: .zero)
+                        videoPlayer.seek(to: CMTime(Timestamp(cue.timings.startTime.timeValue - 0.5)), toleranceBefore: .zero, toleranceAfter: .zero)
                         videoPlayer.play()
                     } label: {
                         Image(systemName: "play.circle")

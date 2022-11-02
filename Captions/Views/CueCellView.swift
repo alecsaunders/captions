@@ -42,7 +42,6 @@ struct CueView: View {
                                 Image(systemName: "multiply.circle")
                             }
                                 .buttonStyle(.borderless)
-                                .padding(5)
                                 .onHover { hovering in
                                     hoveringOverClearButton = hovering
                                 }
@@ -50,6 +49,7 @@ struct CueView: View {
                             Spacer()
                         }
                     }
+                    .frame(height: 65)
                 }
             }
                 .padding(5)

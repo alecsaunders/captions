@@ -32,8 +32,9 @@ struct ContentView: View {
                 .listStyle(PlainListStyle())
             VStack {
                 VideoPlayer(player: document.player)
-                Spacer()
-                Button("Add Movie") {
+            }
+            .toolbar {
+                Button {
                     let panel = NSOpenPanel()
                     panel.allowsMultipleSelection = false
                     panel.canChooseDirectories = false
@@ -43,7 +44,11 @@ struct ContentView: View {
                             document.loadPlayer()
                         }
                     }
+                } label: {
+                    Image(systemName: "film")
                 }
+                    .frame(width: 50)
+                    .buttonStyle(.bordered)
             }
         }
     }

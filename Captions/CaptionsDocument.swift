@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import AVKit
 
 extension UTType {
     static var webVTTDocument: UTType {
@@ -16,8 +17,11 @@ extension UTType {
 
 struct CaptionsDocument: FileDocument {
     var captions: Captions = Captions(fromText: "")
+    var playerUrl: URL?
+    var player: AVPlayer = AVPlayer()
 
-    init() {}
+    init() {
+    }
 
     static var readableContentTypes: [UTType] { [.webVTTDocument] }
 
@@ -34,5 +38,11 @@ struct CaptionsDocument: FileDocument {
         let textContents = String(captions)
         let data = textContents.data(using: .utf8)!
         return .init(regularFileWithContents: data)
+    }
+    
+    mutating func loadPlayer() {
+        if let playerUrl = self.playerUrl {
+            self.player = AVPlayer(url: playerUrl)
+        }
     }
 }

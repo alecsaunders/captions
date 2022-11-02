@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
     @Binding var document: CaptionsDocument
@@ -30,9 +31,19 @@ struct ContentView: View {
                 .frame(minWidth: 278)
                 .listStyle(PlainListStyle())
             VStack {
-                Text("Main body")
-                    .padding(25)
+                VideoPlayer(player: document.player)
                 Spacer()
+                Button("Add Movie") {
+                    let panel = NSOpenPanel()
+                    panel.allowsMultipleSelection = false
+                    panel.canChooseDirectories = false
+                    if panel.runModal() == .OK {
+                        if let fileUrl = panel.url {
+                            document.playerUrl = fileUrl
+                            document.loadPlayer()
+                        }
+                    }
+                }
             }
         }
     }

@@ -54,7 +54,7 @@ struct CueView: View {
             }
                 .padding(5)
                 .background(cue.id == highlighted?.id ? .secondary.opacity(0.125) : Color.clear)
-                .cornerRadius(8)            
+                .cornerRadius(8)
             Divider()
         }
             .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {

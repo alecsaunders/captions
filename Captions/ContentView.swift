@@ -52,6 +52,7 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }
+                    .keyboardShortcut("r", modifiers: .command)
                 Button {
                     let panel = NSOpenPanel()
                     panel.allowsMultipleSelection = false

@@ -10,10 +10,27 @@ import SwiftUI
 
 struct CueHeaderView: View {
     @Binding var cue: Cue
+    @State var showPlayIcon: Bool = false
 
     var body: some View {
         HStack {
-            Text("\(cue.identifier)")
+            HStack {
+                Text("\(cue.identifier)")
+                if showPlayIcon {
+                    Button {
+                        print("play")
+                    } label: {
+                        Image(systemName: "play.circle")
+                    }
+                        .buttonStyle(.borderless)
+                        .tint(.blue)
+                }
+                Spacer()
+            }
+                .frame(width: 60)
+                .onHover { hovering in
+                    showPlayIcon = hovering
+                }
             Spacer()
         }
     }

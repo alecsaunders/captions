@@ -20,8 +20,12 @@ struct ContentView: View {
                             CueView(captions: $document.captions, cue: $cue, highlighted: $highlighted)
                             Spacer()
                         }
+                        .contextMenu {
+                            Button("Delete row") {
+                                document.captions.removeCue(withId: cue.identifier)
+                            }
+                        }
                     }
-                    
                 }
             }
                 .frame(minWidth: 268)

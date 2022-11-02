@@ -70,6 +70,19 @@ struct Captions {
         }
         return false
     }
+    
+    mutating func removeCue(withId: Int) {
+        var cueIndex: Int = 0
+        
+        for idx in 0..<self.cues.count{
+            if self.cues[idx].identifier == withId {
+                cueIndex = idx
+            }
+        }
+        if cueIndex > 0 {
+            self.cues.remove(at: cueIndex)
+        }
+    }
 }
 
 

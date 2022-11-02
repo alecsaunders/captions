@@ -16,18 +16,20 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach($document.captions.cues) { $cue in
-                    HStack {
-                        CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
-                        Spacer()
-                    }
-                    .contextMenu {
-                        Button("Delete row") {
-                            self.document.captions.cues.removeAll { $0.id == cue.id }
+            ScrollView {
+                LazyVStack {
+                    ForEach($document.captions.cues) { $cue in
+                        HStack {
+                            CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
+                            Spacer()
                         }
+                        .contextMenu {
+                            Button("Delete row") {
+                                self.document.captions.cues.removeAll { $0.id == cue.id }
+                            }
+                        }
+                        .listRowInsets(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
                     }
-                    .listRowInsets(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
                 }
             }
                 .frame(minWidth: 278)

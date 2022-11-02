@@ -40,6 +40,19 @@ struct ContentView: View {
             }
             .toolbar {
                 Button {
+                    let currentTime = document.player.currentTime()
+                    let isPlaying = document.player.rate > 0
+                    document.player.pause()
+                    document.player = AVPlayer()
+                    document.loadPlayer(subsUrl: file.fileURL!)
+                    document.player.seek(to: currentTime, toleranceBefore: .zero, toleranceAfter: .zero)
+                    if isPlaying {
+                        document.player.play()
+                    }
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+                Button {
                     let panel = NSOpenPanel()
                     panel.allowsMultipleSelection = false
                     panel.canChooseDirectories = false

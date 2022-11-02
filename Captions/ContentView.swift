@@ -26,13 +26,12 @@ struct ContentView: View {
                     }
                 }
             }
-                .frame(minWidth: 268)
+                .frame(minWidth: 272)
             VStack {
                 Text("Main body")
                     .padding(25)
                 Spacer()
             }
-
         }
     }
 }

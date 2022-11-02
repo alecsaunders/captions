@@ -32,10 +32,6 @@ struct CueView: View {
                             highlighted = nil
                         }
                     }
-                    .padding(5)
-                    .background(cue.id == highlighted?.id ? .secondary.opacity(0.125) : Color.clear)
-                    .cornerRadius(8)
-                    .padding(.leading, 8)
                 if highlighted?.id == cue.id {
                     HStack {
                         Spacer()
@@ -56,13 +52,15 @@ struct CueView: View {
                     }
                 }
             }
-            
+                .padding(5)
+                .background(cue.id == highlighted?.id ? .secondary.opacity(0.125) : Color.clear)
+                .cornerRadius(8)            
             Divider()
         }
-        .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {
-            TimeShiftView(captions: $captions, cue: $cue, shiftControlOpts: $shiftControlOpts)
-                .frame(minWidth: 175)
-                .padding(20)
-        }
+            .popover(isPresented: $shiftControlOpts.showShiftPopover, attachmentAnchor: .rect(.rect(CGRect(x: shiftControlOpts.isStart ? 50 : 175, y: 5, width: 0, height: 0))) ) {
+                TimeShiftView(captions: $captions, cue: $cue, shiftControlOpts: $shiftControlOpts)
+                    .frame(minWidth: 175)
+                    .padding(20)
+            }
     }
 }

@@ -16,6 +16,8 @@ struct CueHeaderView: View {
         HStack {
             HStack {
                 Text("\(cue.identifier)")
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
                 if showPlayIcon {
                     Button {
                         print("play")

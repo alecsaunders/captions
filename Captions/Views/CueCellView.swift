@@ -19,9 +19,10 @@ struct CueView: View {
     var body: some View {
         VStack {
             ZStack {
-                VStack {
+                VStack(spacing: 5) {
                     CueHeaderView(cue: $cue)
                     CueTimingsView(cue: $cue, highlighted: $highlighted, shiftControlOpts: $shiftControlOpts)
+                        .padding(.bottom, 10)
                     CueTextView(cue: $cue)
                 }
                     .onHover { hovering in
@@ -49,7 +50,7 @@ struct CueView: View {
                             Spacer()
                         }
                     }
-                    .frame(height: 65)
+                    .frame(height: 68)
                 }
             }
                 .padding(5)

@@ -26,7 +26,8 @@ struct ContentView: View {
                     }
                 }
             }
-                .frame(minWidth: 272)
+                .frame(minWidth: 270)
+                .listStyle(PlainListStyle())
             VStack {
                 Text("Main body")
                     .padding(25)

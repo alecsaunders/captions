@@ -24,6 +24,7 @@ struct ContentView: View {
                             self.document.captions.cues.removeAll { $0.id == cue.id }
                         }
                     }
+                    .listRowInsets(.init())
                 }
             }
                 .frame(minWidth: 270)

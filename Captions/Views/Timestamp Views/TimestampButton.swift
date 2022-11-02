@@ -11,6 +11,7 @@ struct TimestampButton: View {
     @Binding var cue: Cue
     @State var start: Bool = false
     @Binding var shiftControlOpts: ShiftControlOptions
+    @State var timeButtonHover: Bool = false
     
     var body: some View {
         Button(String(start ? cue.timings.startTime: cue.timings.endTime)) {
@@ -18,6 +19,13 @@ struct TimestampButton: View {
             shiftControlOpts.isStart = start
         }
             .buttonStyle(.plain)
+            .timestampStyle()
+            .onHover { hovering in
+                timeButtonHover = hovering
+            }
+            .padding(1)
+            .foregroundColor(timeButtonHover ? .primary.opacity(0.8) : .primary)
+            .cornerRadius(5)
     }
 }
 

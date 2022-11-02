@@ -24,7 +24,7 @@ struct ContentView: View {
                     
                 }
             }
-                .frame(minWidth: 250)
+                .frame(minWidth: 268)
             
             VStack {
                 Text("Main body")

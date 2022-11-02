@@ -26,6 +26,8 @@ struct CueView: View {
                     if hovering {
                         highlighted = cue
                         shiftControlOpts.resetOptions()
+                    } else {
+                        highlighted = nil
                     }
                 }
                 .padding(5)

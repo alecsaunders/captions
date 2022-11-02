@@ -17,7 +17,7 @@ struct CueTimingsView: View {
         HStack {
             TimestampButton(cue: $cue, start: true, shiftControlOpts: $shiftControlOpts)
             Text("-->")
-            TimestampButton(cue: $cue, start: false, shiftControlOpts: $shiftControlOpts)            
+            TimestampButton(cue: $cue, start: false, shiftControlOpts: $shiftControlOpts)
             Spacer()
         }
     }

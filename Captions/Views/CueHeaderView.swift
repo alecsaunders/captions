@@ -16,7 +16,8 @@ struct CueHeaderView: View {
         HStack {
             HStack {
                 Text("\(cue.identifier)")
-                    .fontWeight(.bold)
+                    .fontWeight(.semibold)
+                    .font(.system(size: CGFloat(12)))
                     .foregroundColor(.gray)
                 if showPlayIcon {
                     Button {

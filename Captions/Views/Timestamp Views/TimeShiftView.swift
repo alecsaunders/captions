@@ -19,6 +19,7 @@ struct TimeShiftView: View {
                 Text(shiftControlOpts.timeShiftLabel)
                     .frame(minWidth: 60, alignment: .trailing)
                     .timestampStyle()
+                    .foregroundColor(.init("ControlsColor"))
                     .padding(3)
                 TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: true)
                            

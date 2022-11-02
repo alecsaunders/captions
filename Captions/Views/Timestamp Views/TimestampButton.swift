@@ -24,7 +24,7 @@ struct TimestampButton: View {
                 timeButtonHover = hovering
             }
             .padding(1)
-            .foregroundColor(timeButtonHover ? .primary.opacity(0.8) : .primary)
+            .foregroundColor(timeButtonHover ? .primary : Color("ControlsColor"))
             .cornerRadius(5)
     }
 }

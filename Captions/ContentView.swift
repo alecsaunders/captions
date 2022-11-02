@@ -32,6 +32,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .padding(.leading, 8)
                 .frame(minWidth: 278)
                 .listStyle(PlainListStyle())
             VStack {

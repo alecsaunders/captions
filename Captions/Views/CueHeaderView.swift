@@ -33,7 +33,7 @@ struct CueHeaderView: View {
                 }
                 Spacer()
             }
-                .frame(width: 60)
+                .frame(width: 75)
                 .onHover { hovering in
                     showPlayIcon = hovering
                 }

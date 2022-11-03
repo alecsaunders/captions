@@ -35,40 +35,60 @@ struct ContentView: View {
             .padding(.leading, 8)
                 .frame(minWidth: 278)
                 .listStyle(PlainListStyle())
-            VStack {
-                VideoPlayer(player: document.player)
-            }
-            .toolbar {
-                Button {
-                    let currentTime = document.player.currentTime()
-                    let isPlaying = document.player.rate > 0
-                    document.player.pause()
-                    document.player = AVPlayer()
-                    document.loadPlayer(subsUrl: file.fileURL!)
-                    document.player.seek(to: currentTime, toleranceBefore: .zero, toleranceAfter: .zero)
-                    if isPlaying {
-                        document.player.play()
-                    }
-                } label: {
-                    Image(systemName: "arrow.clockwise")
-                }
-                    .keyboardShortcut("r", modifiers: .command)
-                Button {
-                    let panel = NSOpenPanel()
-                    panel.allowsMultipleSelection = false
-                    panel.canChooseDirectories = false
-                    if panel.runModal() == .OK {
-                        if let fileUrl = panel.url {
-                            document.playerUrl = fileUrl
-                            document.loadPlayer(subsUrl: file.fileURL!)
+            GeometryReader { geometry in
+                VStack {
+                    ZStack {
+                        VideoPlayer(player: document.player)
+                            
+                        VStack {
+                            Rectangle()
+                                .fill(Color(.white).opacity(0.001))
+                                .zIndex(1)
+                                .frame(width: geometry.size.width, height: geometry.size.height - 45)
+                                .onTapGesture {
+                                    if document.player.rate > 0 {
+                                        document.player.pause()
+                                    } else {
+                                        document.player.play()
+                                    }
+                                }
+                            Spacer()
                         }
                     }
-                } label: {
-                    Image(systemName: "film")
                 }
-                    .frame(width: 50)
-                    .buttonStyle(.bordered)
+                .toolbar {
+                    Button {
+                        let currentTime = document.player.currentTime()
+                        let isPlaying = document.player.rate > 0
+                        document.player.pause()
+                        document.player = AVPlayer()
+                        document.loadPlayer(subsUrl: file.fileURL!)
+                        document.player.seek(to: currentTime, toleranceBefore: .zero, toleranceAfter: .zero)
+                        if isPlaying {
+                            document.player.play()
+                        }
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                        .keyboardShortcut("r", modifiers: .command)
+                    Button {
+                        let panel = NSOpenPanel()
+                        panel.allowsMultipleSelection = false
+                        panel.canChooseDirectories = false
+                        if panel.runModal() == .OK {
+                            if let fileUrl = panel.url {
+                                document.playerUrl = fileUrl
+                                document.loadPlayer(subsUrl: file.fileURL!)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "film")
+                    }
+                        .frame(width: 50)
+                        .buttonStyle(.bordered)
+                }
             }
+            
         }
     }
 }

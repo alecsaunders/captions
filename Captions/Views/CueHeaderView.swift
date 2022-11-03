@@ -17,20 +17,19 @@ struct CueHeaderView: View {
     var body: some View {
         HStack {
             HStack {
-                Text("\(cue.identifier)")
-                    .fontWeight(.semibold)
-                    .font(.system(size: CGFloat(12)))
-                    .foregroundColor(.gray)
-                if showPlayIcon {
-                    Button {
-                        videoPlayer.seek(to: CMTime(Timestamp(cue.timings.startTime.timeValue - 0.5)), toleranceBefore: .zero, toleranceAfter: .zero)
-                        videoPlayer.play()
-                    } label: {
-                        Image(systemName: "play.circle")
-                    }
-                        .buttonStyle(.borderless)
-                        .tint(.blue)
+
+                Button {
+                    videoPlayer.seek(to: CMTime(Timestamp(cue.timings.startTime.timeValue - 0.5)), toleranceBefore: .zero, toleranceAfter: .zero)
+                    videoPlayer.play()
+                } label: {
+                    Text("\(cue.identifier)")
+                        .fontWeight(.semibold)
+                        .font(.system(size: CGFloat(12)))
+                        .foregroundColor(.gray)
+                    Image(systemName: "play.circle")
+                        .foregroundColor(showPlayIcon ? Color("ControlsColor") : .clear)
                 }
+                    .buttonStyle(.borderless)
                 Spacer()
             }
                 .frame(width: 75)

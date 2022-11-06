@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVKit
 
 
 struct Captions {
@@ -82,6 +83,18 @@ struct Captions {
         if cueIndex > 0 {
             self.cues.remove(at: cueIndex)
         }
+    }
+    
+    func getCueBeforeTime(time: CMTime) -> Cue {
+        var cueToJumpTo = cues[0]
+        for someCue in cues {
+            if someCue.timings.startTime.timeValue < time.seconds {
+                cueToJumpTo = someCue
+            } else {
+                break
+            }
+        }
+        return cueToJumpTo
     }
 }
 

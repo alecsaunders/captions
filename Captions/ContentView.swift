@@ -13,15 +13,13 @@ struct ContentView: View {
     @Binding var document: CaptionsDocument
     var file: FileDocumentConfiguration<CaptionsDocument>
     @State var highlighted: Cue?
+    @State private var scrollTarget: Int?
 
     var body: some View {
         NavigationView {
             ScrollView {
-                ScrollViewReader { value in
+                ScrollViewReader { (proxy: ScrollViewProxy) in
                     LazyVStack {
-                        Button("Temp scrollTo logic") {
-                            value.scrollTo(500, anchor: .top)
-                        }
                         ForEach($document.captions.cues) { $cue in
                             HStack {
                                 CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
@@ -34,6 +32,15 @@ struct ContentView: View {
                             }
                             .listRowInsets(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
                             .id(cue.identifier)
+                        }
+                        .onChange(of: scrollTarget) { target in
+                            if let target = target {
+                                scrollTarget = nil
+
+                                withAnimation {
+                                    proxy.scrollTo(target, anchor: .top)
+                                }
+                            }
                         }
                     }
                 }
@@ -64,9 +71,9 @@ struct ContentView: View {
                 }
                 .toolbar {
                     Button {
-                        print("Skip to now")
+                        scrollTarget = document.captions.getCueBeforeTime(time: document.player.currentTime()).identifier
                     } label: {
-                        Image(systemName: "arrow.forward.to.line.circle")
+                        Image(systemName: "arrow.forward.to.line")
                     }
                     Button {
                         let currentTime = document.player.currentTime()

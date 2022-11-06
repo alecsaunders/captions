@@ -58,6 +58,11 @@ struct ContentView: View {
                 }
                 .toolbar {
                     Button {
+                        print("Skip to now")
+                    } label: {
+                        Image(systemName: "arrow.forward.to.line.circle")
+                    }
+                    Button {
                         let currentTime = document.player.currentTime()
                         let isPlaying = document.player.rate > 0
                         document.player.pause()

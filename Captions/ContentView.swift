@@ -19,6 +19,9 @@ struct ContentView: View {
             ScrollView {
                 ScrollViewReader { value in
                     LazyVStack {
+                        Button("Temp scrollTo logic") {
+                            value.scrollTo(500, anchor: .top)
+                        }
                         ForEach($document.captions.cues) { $cue in
                             HStack {
                                 CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)

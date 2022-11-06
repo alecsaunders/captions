@@ -14,6 +14,9 @@ struct TimeShiftView: View {
     
     var body: some View {
         VStack {
+            Text("New Time: \(String(shiftControlOpts.newTimestamp(cue: cue)))")
+                .font(Font.system(.body, design: .monospaced))
+            Divider()
             HStack(spacing: 5) {
                 TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: false)
                 Text(shiftControlOpts.timeShiftLabel)
@@ -54,9 +57,6 @@ struct TimeShiftView: View {
                     }
             }
             Slider(value: $shiftControlOpts.timeShiftDouble, in: -200...200)
-            Divider()
-            Text("New Time: \(String(shiftControlOpts.newTimestamp(cue: cue)))")
-                .font(Font.system(.body, design: .monospaced))
         }
     }
     

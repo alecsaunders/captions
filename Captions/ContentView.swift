@@ -25,16 +25,10 @@ struct ContentView: View {
                         ForEach($document.captions.cues) { $cue in
                             HStack {
                                 CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
-                                Spacer()
-                            }
-                            .searchable(text: $searchText) {
-                                ScrollView {
-                                    VStack {
-                                        ForEach($searchResults) { $searchCue in
-                                            Text("\(searchResults.count): \(searchCue.text)")
-                                        }
+                                    .searchable(text: $searchText) {
+                                        SearchView(searchResults: $searchResults)
                                     }
-                                }
+                                Spacer()
                             }
                             .contextMenu {
                                 Button("Delete row") {

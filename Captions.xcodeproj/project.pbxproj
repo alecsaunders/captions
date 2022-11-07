@@ -20,6 +20,7 @@
 		E448EF57290E38FB00E1B805 /* CaptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF56290E38FB00E1B805 /* CaptionsTests.swift */; };
 		E448EF61290E38FB00E1B805 /* CaptionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF60290E38FB00E1B805 /* CaptionsUITests.swift */; };
 		E448EF63290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E448EF62290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift */; };
+		E45926C12918D5A30007E6F0 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45926C02918D5A30007E6F0 /* SearchView.swift */; };
 		E4A29F7529102E5700FB7C00 /* CueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F7429102E5700FB7C00 /* CueCellView.swift */; };
 		E4A29F782910324100FB7C00 /* CueHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F772910324100FB7C00 /* CueHeaderView.swift */; };
 		E4A29F7A291032A400FB7C00 /* CueTimingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A29F79291032A400FB7C00 /* CueTimingsView.swift */; };
@@ -66,6 +67,7 @@
 		E448EF5C290E38FB00E1B805 /* CaptionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E448EF60290E38FB00E1B805 /* CaptionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsUITests.swift; sourceTree = "<group>"; };
 		E448EF62290E38FB00E1B805 /* CaptionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E45926C02918D5A30007E6F0 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E4A29F7429102E5700FB7C00 /* CueCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueCellView.swift; sourceTree = "<group>"; };
 		E4A29F772910324100FB7C00 /* CueHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueHeaderView.swift; sourceTree = "<group>"; };
 		E4A29F79291032A400FB7C00 /* CueTimingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueTimingsView.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				E4A29F772910324100FB7C00 /* CueHeaderView.swift */,
 				E4A29F7B2910333200FB7C00 /* CueTextView.swift */,
 				E44828F529117DCA00332221 /* Timestamp Views */,
+				E45926C02918D5A30007E6F0 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				E4A29F7E29103C4F00FB7C00 /* Cue.swift in Sources */,
 				E42685C22911F40700047242 /* TimestampFormat.swift in Sources */,
 				E44828F429117AC400332221 /* TimeShiftView.swift in Sources */,
+				E45926C12918D5A30007E6F0 /* SearchView.swift in Sources */,
 				E44828ED2911739A00332221 /* ShiftControlOptions.swift in Sources */,
 				E4A29F80291062D800FB7C00 /* TimestampButton.swift in Sources */,
 				E4A29F782910324100FB7C00 /* CueHeaderView.swift in Sources */,

@@ -12,8 +12,10 @@ import MediaPlayer
 struct ContentView: View {
     @Binding var document: CaptionsDocument
     var file: FileDocumentConfiguration<CaptionsDocument>
+    @State var searchText: String = ""
     @State var highlighted: Cue?
     @State private var scrollTarget: Int?
+    @State private var searchResults: [Cue] = []
 
     var body: some View {
         NavigationView {
@@ -24,6 +26,15 @@ struct ContentView: View {
                             HStack {
                                 CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
                                 Spacer()
+                            }
+                            .searchable(text: $searchText) {
+                                ScrollView {
+                                    VStack {
+                                        ForEach($searchResults) { $searchCue in
+                                            Text("\(searchResults.count): \(searchCue.text)")
+                                        }
+                                    }
+                                }
                             }
                             .contextMenu {
                                 Button("Delete row") {
@@ -42,10 +53,17 @@ struct ContentView: View {
                                 }
                             }
                         }
+                        .onChange(of: searchText) { newValue in
+                            if searchText.isEmpty {
+                                searchResults = []
+                            } else {
+                                searchResults = document.captions.cues.filter { $0.text.lowercased().contains(searchText.lowercased())}
+                            }
+                        }
                     }
                 }
             }
-            .padding(.leading, 8)
+                .padding(.leading, 8)
                 .frame(minWidth: 278)
                 .listStyle(PlainListStyle())
             GeometryReader { geometry in

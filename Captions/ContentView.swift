@@ -27,13 +27,13 @@ struct ContentView: View {
                                 .searchable(text: $searchText) {
                                     SearchView(searchResults: $searchResults, scrollTarget: $scrollTarget)
                                 }
-                            .contextMenu {
-                                Button("Delete row") {
-                                    self.document.captions.cues.removeAll { $0.id == cue.id }
+                                .contextMenu {
+                                    Button("Delete row") {
+                                        self.document.captions.cues.removeAll { $0.id == cue.id }
+                                    }
                                 }
-                            }
-                            .listRowInsets(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
-                            .id(cue.identifier)
+                                .listRowInsets(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
+                                .id(cue.identifier)
                         }
                         .onChange(of: scrollTarget) { target in
                             if let target = target {

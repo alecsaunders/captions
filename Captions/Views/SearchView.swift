@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @Binding var searchResults: [Cue]
+    @Binding var scrollTarget: Int?
     
     var body: some View {
         ScrollView {
@@ -18,20 +19,28 @@ struct SearchView: View {
                         HStack {
                             VStack {
                                 HStack {
-                                    Text("\(searchCue.identifier)")
-                                    Spacer()
-                                    Text("\(String(searchCue.timings))")
+                                    Text("\(String(searchCue.timings.startTime))")
+                                        .font(Font.system(size: 12, design: .monospaced))
+                                        .fontWeight(.light)
+                                }
+                                HStack {
+                                    Text(searchCue.text)
                                     Spacer()
                                 }
-                                Text(searchCue.text)
                             }
+                                .padding(5)
                             Spacer()
                         }
                         Divider()
                     }
+                    .onTapGesture {
+                        print("Scroll to \(searchCue.identifier)")
+                        scrollTarget = searchCue.identifier
+                    }
                 }
             }
         }
+            .frame(height: 200)
     }
 }
 
@@ -43,7 +52,9 @@ struct SearchView_Previews: PreviewProvider {
         Cue(identifier: 4, timings: Timings(timingsLine: "00:06.000 --> 00:07.000"), settings: "", text: "Line 4 asdfa asdfasdf asdf ")
     ]
     
+    @State static var scrollTarget: Int? = 2
+    
     static var previews: some View {
-        SearchView(searchResults: $searchResults)
+        SearchView(searchResults: $searchResults, scrollTarget: $scrollTarget)
     }
 }

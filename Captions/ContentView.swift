@@ -23,13 +23,10 @@ struct ContentView: View {
                 ScrollViewReader { (proxy: ScrollViewProxy) in
                     LazyVStack {
                         ForEach($document.captions.cues) { $cue in
-                            HStack {
-                                CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
-                                    .searchable(text: $searchText) {
-                                        SearchView(searchResults: $searchResults)
-                                    }
-                                Spacer()
-                            }
+                            CueView(captions: $document.captions, videoPlayer: $document.player, cue: $cue, highlighted: $highlighted)
+                                .searchable(text: $searchText) {
+                                    SearchView(searchResults: $searchResults, scrollTarget: $scrollTarget)
+                                }
                             .contextMenu {
                                 Button("Delete row") {
                                     self.document.captions.cues.removeAll { $0.id == cue.id }

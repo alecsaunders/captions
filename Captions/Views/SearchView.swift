@@ -17,20 +17,15 @@ struct SearchView: View {
                 ForEach($searchResults) { $searchCue in
                     VStack {
                         HStack {
-                            VStack {
-                                HStack {
-                                    Text("\(String(searchCue.timings.startTime))")
-                                        .font(Font.system(size: 12, design: .monospaced))
-                                        .fontWeight(.light)
-                                }
-                                HStack {
-                                    Text(searchCue.text)
-                                    Spacer()
-                                }
-                            }
-                                .padding(5)
+                            Text("\(String(searchCue.timings.startTime))")
+                                .font(Font.system(size: 12, design: .monospaced))
+                                .fontWeight(.light)
+                        }
+                        HStack {
+                            Text(searchCue.text)
                             Spacer()
                         }
+                            .padding(5)
                         Divider()
                     }
                     .onTapGesture {

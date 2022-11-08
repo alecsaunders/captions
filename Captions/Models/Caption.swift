@@ -51,7 +51,11 @@ struct Captions {
                 cueCounter += 1
                 continue
             } else {
-                tmpText += line
+                if tmpText.isEmpty {
+                    tmpText = line
+                } else {
+                    tmpText += "\n\(line)"
+                }
             }
             if idx == lines.count - 1 && !isNewCue {
                 let tmpCue = Cue(identifier: cueCounter, timings: tmpTimings, settings: tmpSettings, text: tmpText)

@@ -55,6 +55,7 @@ struct ContentView: View {
                 }
             }
                 .padding(.leading, 8)
+                .padding(.trailing, 8)
                 .frame(minWidth: 278)
                 .listStyle(PlainListStyle())
             GeometryReader { geometry in

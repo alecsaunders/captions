@@ -17,6 +17,8 @@ struct TimeShiftView: View {
             Text("New Time: \(String(shiftControlOpts.newTimestamp(cue: cue)))")
                 .font(Font.system(.body, design: .monospaced))
             Divider()
+                .padding(.top, 0)
+                .padding(.bottom, 10)
             HStack(spacing: 5) {
                 TimeShiftButton(cue: $cue, shiftControlOpts: $shiftControlOpts, addTime: false)
                 Text(shiftControlOpts.timeShiftLabel)

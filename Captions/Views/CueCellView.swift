@@ -24,7 +24,6 @@ struct CueView: View {
                 VStack(spacing: 5) {
                     CueHeaderView(cue: $cue, videoPlayer: $videoPlayer)
                     CueTimingsView(cue: $cue, highlighted: $highlighted, shiftControlOpts: $shiftControlOpts)
-                        .padding(.bottom, 10)
                     CueTextView(cue: $cue)
                 }
                     .onHover { hovering in
@@ -52,7 +51,7 @@ struct CueView: View {
                             Spacer()
                         }
                     }
-                    .frame(height: 68)
+                    .frame(height: 58)
                 }
             }
                 .padding(5)
